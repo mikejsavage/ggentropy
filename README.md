@@ -56,5 +56,5 @@ ggentropy uses the following functionality:
 
 - Windows: [CryptGenRandom](https://docs.microsoft.com/en-us/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom)
 - MacOS: /dev/urandom
-- Linux: getrandom with a fallback to /dev/urandom
-- OpenBSD: arc4random_buf
+- Linux: [getrandom](https://lwn.net/Articles/606141/) with a fallback to /dev/urandom
+- OpenBSD: [arc4random_buf](https://man.openbsd.org/arc4random_buf)
