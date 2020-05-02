@@ -51,6 +51,10 @@ static bool try_urandom( void * buf, size_t n ) {
 
 #if PLATFORM_WINDOWS
 
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+
 #include <windows.h>
 #include <wincrypt.h>
 
