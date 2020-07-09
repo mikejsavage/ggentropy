@@ -18,21 +18,29 @@
 
 #if defined( _WIN32 )
 #  define PLATFORM_WINDOWS 1
+
 #elif defined( __linux__ )
 #  define PLATFORM_LINUX 1
 #  define PLATFORM_HAS_URANDOM 1
+
 #elif defined( __APPLE__ )
-#  define PLATFORM_HAS_URANDOM 1
+#  define PLATFORM_MACOS 1
+
 #elif defined( __FreeBSD__ )
 #  define PLATFORM_HAS_ARC4RANDOM 1
+
 #elif defined( __OpenBSD__ )
 #  define PLATFORM_HAS_ARC4RANDOM 1
+
 #elif defined( __NetBSD__ )
 #  define PLATFORM_HAS_ARC4RANDOM 1
+
 #elif defined( __sun )
 #  define PLATFORM_HAS_URANDOM 1
+
 #else
 #  error new platform
+
 #endif
 
 #include <assert.h>
@@ -95,6 +103,15 @@ bool ggentropy( void * buf, size_t n ) {
 		return false;
 
 	return try_urandom( buf, n );
+}
+
+#elif PLATFORM_MACOS
+
+#include <sys/random.h>
+
+bool ggentropy( void * buf, size_t n ) {
+	assert( n <= 256 );
+	return getentropy( buf, n ) == 0;
 }
 
 #elif PLATFORM_HAS_URANDOM
