@@ -4,7 +4,8 @@ ggentropy is a liberally licensed, cross platform, entropy library for
 C++. You can use it to generate cryptographically secure random numbers,
 safe for use as nonces and keys in cryptographic operations.
 
-ggentropy supports Windows, MacOS, Linux and OpenBSD.
+ggentropy supports Windows, MacOS, Linux, FreeBSD, OpenBSD, NetBSD and
+Solaris.
 
 
 ## Usage
