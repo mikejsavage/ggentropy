@@ -40,7 +40,6 @@
 
 #else
 #  error new platform
-
 #endif
 
 #include <assert.h>
