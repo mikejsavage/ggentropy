@@ -57,9 +57,10 @@ source.
 
 ggentropy uses the following functionality:
 
-- Windows: [CryptGenRandom](https://docs.microsoft.com/en-us/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom)
-- MacOS: [getentropy](https://opensource.apple.com/source/xnu/xnu-3789.21.4/bsd/man/man2/getentropy.2.auto.html)
-- Linux: [getrandom](https://lwn.net/Articles/606141/) with a fallback
-  to /dev/urandom if the syscall doesn't exist
-- FreeBSD/OpenBSD/NetBSD: [arc4random_buf](https://man.openbsd.org/arc4random_buf)
-- Solaris: /dev/urandom
+| OS | Implementation |
+| - | - |
+| Windows | [CryptGenRandom](https://docs.microsoft.com/en-us/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom) |
+| MacOS | [getentropy](https://opensource.apple.com/source/xnu/xnu-3789.21.4/bsd/man/man2/getentropy.2.auto.html) |
+| Linux | [getrandom](https://lwn.net/Articles/606141/) with a fallback to /dev/urandom if the syscall doesn't exist |
+| FreeBSD/OpenBSD/NetBSD | [arc4random_buf](https://man.openbsd.org/arc4random_buf) |
+| Solaris | /dev/urandom |
