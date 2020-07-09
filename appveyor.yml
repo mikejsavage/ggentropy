@@ -1,0 +1,16 @@
+version: "{build}"
+clone_depth: 1
+image:
+- Visual Studio 2019
+- macOS
+- Ubuntu
+
+environment:
+  APPVEYOR_YML_DISABLE_PS_LINUX: true
+
+build_script:
+- cmd: call "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\Build\\vcvarsall.bat" x86_amd64
+- cmd: cl.exe /W4 ggentropy.cpp test.cpp
+- cmd: ggentropy
+- sh: g++ -Wall -Wextra -o ggentropy ggentropy.cpp test.cpp
+- sh: ./ggentropy
