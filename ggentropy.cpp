@@ -42,6 +42,7 @@
 #  error new platform
 #endif
 
+#include <stddef.h>
 #include <assert.h>
 
 #if PLATFORM_HAS_URANDOM
