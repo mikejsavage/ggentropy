@@ -66,6 +66,8 @@ static bool try_urandom( void * buf, size_t n ) {
 
 #if PLATFORM_WINDOWS
 
+#pragma comment( lib, "advapi32.lib" )
+
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
 #endif
