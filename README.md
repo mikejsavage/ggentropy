@@ -1,13 +1,22 @@
 # ggentropy
 
-[![Appveyor](https://ci.appveyor.com/api/projects/status/xjeb72qltn1l0r3v?svg=true)](https://ci.appveyor.com/project/mikejsavage/ggentropy)
+[![Appveyor](https://ci.appveyor.com/api/projects/status/xjeb72qltn1l0r3v?svg=true)](https://ci.appveyor.com/project/mikejsavage/ggentropy) on Windows/macOS/Linux
 
-ggentropy is a liberally licensed, cross platform, entropy library for
-C++. You can use it to generate cryptographically secure random numbers,
-safe for use as nonces and keys in cryptographic operations.
+ggentropy is a liberally licensed and cross platform entropy library.
+You can use it to generate cryptographically secure random numbers, safe
+for use as nonces and keys in cryptographic operations.
 
-ggentropy supports Windows, MacOS, Linux, FreeBSD, OpenBSD, NetBSD and
-Solaris.
+ggentropy supports Windows, Apple platforms, Linux, FreeBSD, OpenBSD and
+NetBSD.
+
+
+## Version history
+
+- __v1.0 19th Jul 2021__:
+  - Use `arc4random_buf` on Apple platforms
+  - Drop `/dev/urandom` fallback on Linux because all versions that
+    require it have been EOL for years
+  - Drop Solaris support
 
 
 ## Usage
@@ -60,7 +69,5 @@ ggentropy uses the following functionality:
 | OS | Implementation |
 | - | - |
 | Windows | [BCryptGenRandom](https://docs.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom) |
-| MacOS | [getentropy](https://opensource.apple.com/source/xnu/xnu-3789.21.4/bsd/man/man2/getentropy.2.auto.html) |
-| Linux | [getrandom](https://lwn.net/Articles/606141/) with a fallback to /dev/urandom if the syscall doesn't exist |
-| FreeBSD/OpenBSD/NetBSD | [arc4random_buf](https://man.openbsd.org/arc4random_buf) |
-| Solaris | /dev/urandom |
+| Linux | [getrandom](https://lwn.net/Articles/606141/) |
+| macOS/iOS/BSD | [arc4random_buf](https://man.openbsd.org/arc4random_buf) |
